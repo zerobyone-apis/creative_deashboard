@@ -1,0 +1,22 @@
+[
+    {
+        "icon": "bx bx-error",
+        "content": "Ten en cuenta que quedan 4 dias para que expire su licencia, no se preocupe lo contactaremos para su renovacion 😉"
+    },
+    {
+        "icon": "bx bx-package",
+        "content": "Notificamos nuevas reservaciones en su sitio web, mas informacion clickendo aqui 📝"
+    },
+    {
+        "icon": "bx bx-cart",
+        "content": "Reporte de Stock en camino , notificacion de recuento de stock ☕️"
+    },
+    {
+        "icon": "bx bx-error",
+        "content": "Error en la validacion de su numero, revise sus configuraciones, no dude en contactarnos si tiene alguna duda 🙂"
+    },
+    {
+        "icon": "bx bx-cart",
+        "content": "Felicidades por superar su meta de ventas del mes anteriror! 🥳 Aqui un pequelo reporte con las estadisticas 😉"
+    }
+]
