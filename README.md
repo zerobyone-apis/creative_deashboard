@@ -1,23 +1,17 @@
-# React Admin Dashboard with Multiple Themes
+# React Admin Dashboard
 
     Build the Zero_Dash with multiple themes | React Admin Panel CSS | ReactJS
 
 # Description
 
-    We create a new service providing information to ours clients and give they all metrics need its | React Admin Panel CSS | ReactJS
-
-# Resource
-
-    Google font: https://fonts.google.com/
-
-    Boxicons: https://boxicons.com/
-
-    Images: https://unsplash.com/
 
 # Preview
 
-!["Build React Admin Dashboard with Multiple Themes | React Admin Panel CSS | ReactJS"](https://user-images.githubusercontent.com/67447840/124409084-d89ad200-dd71-11eb-86e1-4c9d0a5fe587.png "Build the Zero_Dash with multiple themes | React Admin Panel CSS | ReactJS")
+<img width="1434" alt="image" src="https://github.com/zerobyone-apis/creative_deashboard/assets/37275050/36d6ae36-0df3-43d5-aa8c-49579a235cc7">
 
-!["Build React Admin Dashboard with Multiple Themes | React Admin Panel CSS | ReactJS"](https://user-images.githubusercontent.com/67447840/124409129-ebada200-dd71-11eb-83a9-321edcc37aff.png "Build the Zero_Dash with multiple themes | React Admin Panel CSS | ReactJS")
 
-!["Build React Admin Dashboard with Multiple Themes | React Admin Panel CSS | ReactJS"](https://user-images.githubusercontent.com/67447840/124409160-f9fbbe00-dd71-11eb-9169-493fc70c9240.png "Build the Zero_Dash with multiple themes | React Admin Panel CSS | ReactJS")
+### Notifications
+<img width="423" alt="image" src="https://github.com/zerobyone-apis/creative_deashboard/assets/37275050/6589c941-4bbd-4106-b8db-32e7f45736ab">
+
+### Command Pallete
+<img width="458" alt="image" src="https://github.com/zerobyone-apis/creative_deashboard/assets/37275050/ebcf7fdf-6ebf-4475-9873-853d899bc988">
