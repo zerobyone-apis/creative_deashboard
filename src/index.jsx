@@ -19,7 +19,7 @@ const store = createStore(
   rootReducer
 )
 
-document.title = 'Zero Dash'
+document.title = 'CreativeLabs Dashboard'
 
 ReactDOM.render(
   <Provider store={store}>
