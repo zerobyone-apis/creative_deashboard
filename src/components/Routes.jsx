@@ -1,19 +1,17 @@
 import React from 'react'
-
 import { Route, Switch } from 'react-router-dom'
-
+import { PrivateRoute } from './PrivateRoute'
 import Dashboard from '../pages/Dashboard'
 import Customers from '../pages/Customers'
+import Login from '../pages/Login'
 
-
-// Crear el resto de las rutas y componentes para los demas tabs y categorias
-
-// Crear las rutas para cada path incluido las notificaciones y las busquedas del search
+const isAuthenticated = false;
 const Routes = () => {
     return (
         <Switch>
-            <Route path='/' exact component={Dashboard}/>
-            <Route path='/customers' component={Customers}/>
+            <PrivateRoute path='/' exact component={Dashboard} isAuthenticated={isAuthenticated}/>
+            <PrivateRoute path='/customers' component={Customers} isAuthenticated={isAuthenticated}/>
+            <Route path='/login' component={Login}/>
         </Switch>
     )
 }

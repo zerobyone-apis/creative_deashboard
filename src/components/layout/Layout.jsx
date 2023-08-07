@@ -28,13 +28,14 @@ const Layout = () => {
         dispatch(ThemeAction.setColor(colorClass))
     }, [dispatch])
 
+    const isAuthenticated = true;
     return (
         <BrowserRouter>
             <Route render={(props) => (
                 <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
-                    <Sidebar {...props}/>
+                    {isAuthenticated && <Sidebar {...props}/>}
                     <div className="layout__content">
-                        <TopNav/>
+                        {isAuthenticated && <TopNav/>}
                         <div className="layout__content-main">
                             <Routes/>
                         </div>
