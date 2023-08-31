@@ -1,8 +1,10 @@
 import React from 'react'
+import { Login } from '../components/login/Login'
 
-const Login = () => {
+export const LoginView = () => {
     return (
-        <div>
+        <>
+            <Login/>
             {/* Contenedor de modals*/}
 
             {/* Nuestro login modal -> Inicio de session*/}
@@ -12,8 +14,6 @@ const Login = () => {
 
             {/* Nuestro register modal -> Crear un usuario*/}
             {/* Routeo hacia el dashboard*/}
-        </div>
+        </>
     )
 }
-
-export default Login

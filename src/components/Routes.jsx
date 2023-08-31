@@ -1,19 +1,34 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import { PrivateRoute } from './PrivateRoute'
-import Dashboard from '../pages/Dashboard'
-import Customers from '../pages/Customers'
-import Login from '../pages/Login'
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Route, Switch, useNavigate } from "react-router-dom";
+import { PrivateRoute } from "./PrivateRoute";
+import Dashboard from "../pages/Dashboard";
+import Customers from "../pages/Customers";
+import { LoginView } from "../pages/LoginView";
 
-const isAuthenticated = false;
 const Routes = () => {
-    return (
-        <Switch>
-            <PrivateRoute path='/' exact component={Dashboard} isAuthenticated={isAuthenticated}/>
-            <PrivateRoute path='/customers' component={Customers} isAuthenticated={isAuthenticated}/>
-            <Route path='/login' component={Login}/>
-        </Switch>
-    )
-}
+	const isAuthenticated = useSelector(state => state.UserReducer.user);
+	const navigate = useNavigate();
 
-export default Routes
+	useEffect(() => {
+		if (isAuthenticated) navigate("/");
+	}, [isAuthenticated]);
+	return (
+		<Switch>
+			<PrivateRoute
+				path="/"
+				exact
+				component={Dashboard}
+				isAuthenticated={isAuthenticated}
+			/>
+			<PrivateRoute
+				path="/customers"
+				component={Customers}
+				isAuthenticated={isAuthenticated}
+			/>
+			<Route path="/login" component={LoginView} />
+		</Switch>
+	);
+};
+
+export default Routes;
