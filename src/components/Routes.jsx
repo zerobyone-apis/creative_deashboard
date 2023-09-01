@@ -1,21 +1,36 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Route, Switch, useHistory } from "react-router-dom";
+import { PrivateRoute } from "./PrivateRoute";
+import Dashboard from "../pages/Dashboard";
+import Customers from "../pages/Customers";
+import { LoginView } from "../pages/LoginView";
+import { Logout } from "./logout/Logout";
 
-import { Route, Switch } from 'react-router-dom'
-
-import Dashboard from '../pages/Dashboard'
-import Customers from '../pages/Customers'
-
-
-// Crear el resto de las rutas y componentes para los demas tabs y categorias
-
-// Crear las rutas para cada path incluido las notificaciones y las busquedas del search
 const Routes = () => {
-    return (
-        <Switch>
-            <Route path='/' exact component={Dashboard}/>
-            <Route path='/customers' component={Customers}/>
-        </Switch>
-    )
-}
+	const isAuthenticated = useSelector(state => state.UserReducer.user);
+	const history = useHistory();
 
-export default Routes
+	useEffect(() => {
+		if (isAuthenticated) history.push("/");
+	}, [isAuthenticated]);
+	return (
+		<Switch>
+			<PrivateRoute
+				path="/"
+				exact
+				component={Dashboard}
+				isAuthenticated={isAuthenticated}
+			/>
+			<PrivateRoute
+				path="/customers"
+				component={Customers}
+				isAuthenticated={isAuthenticated}
+			/>
+			<Route path="/logout" component={Logout} />
+			<Route path="/login" component={LoginView} />
+		</Switch>
+	);
+};
+
+export default Routes;

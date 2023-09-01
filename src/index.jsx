@@ -1,33 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals'
+import React from "react";
+import reportWebVitals from "./reportWebVitals";
 
-import { createStore } from 'redux'
+import { Provider } from "react-redux";
 
-import { Provider } from 'react-redux'
+import { reducer } from "./redux/reducers";
 
-import rootReducer from './redux/reducers'
+import "./assets/boxicons-2.0.7/css/boxicons.min.css";
+import "./assets/css/grid.css";
+import "./assets/css/theme.css";
+import "./assets/css/index.css";
+import { createRoot } from "react-dom/client";
 
-import './assets/boxicons-2.0.7/css/boxicons.min.css'
-import './assets/css/grid.css'
-import './assets/css/theme.css'
-import './assets/css/index.css'
+import Layout from "./components/layout/Layout";
+import { configureStore } from "@reduxjs/toolkit";
 
-import Layout from './components/layout/Layout'
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const store = createStore(
-  rootReducer
-)
+const store = configureStore({ reducer });
+const theme = createTheme({});
 
-document.title = 'Zero Dash'
+document.title = "CreativeLabs Dashboard";
+const container = document.getElementById("root");
+const root = createRoot(container);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <Layout />
-    </React.StrictMode>
-  </Provider>,
-  document.getElementById('root')
+root.render(
+	<Provider store={store}>
+		<ThemeProvider theme={theme}>
+			<Layout />
+		</ThemeProvider>
+	</Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
