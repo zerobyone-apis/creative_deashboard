@@ -5,6 +5,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import Dashboard from "../pages/Dashboard";
 import Customers from "../pages/Customers";
 import { LoginView } from "../pages/LoginView";
+import { Logout } from "./logout/Logout";
 
 const Routes = () => {
 	const isAuthenticated = useSelector(state => state.UserReducer.user);
@@ -26,6 +27,7 @@ const Routes = () => {
 				component={Customers}
 				isAuthenticated={isAuthenticated}
 			/>
+			<Route path="/logout" component={Logout} />
 			<Route path="/login" component={LoginView} />
 		</Switch>
 	);
