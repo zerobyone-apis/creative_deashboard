@@ -46,7 +46,9 @@ const Layout = () => {
 					)}
 				/>
 			</BrowserRouter>
-			<ToastContainer />
+			<ToastContainer
+				theme={themeReducer.mode == "theme-mode-light" ? "light" : "dark"}
+			/>
 		</>
 	);
 };
