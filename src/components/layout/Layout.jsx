@@ -48,6 +48,7 @@ const Layout = () => {
 			</BrowserRouter>
 			<ToastContainer
 				theme={themeReducer.mode == "theme-mode-light" ? "light" : "dark"}
+				position={"bottom-left"}
 			/>
 		</>
 	);
