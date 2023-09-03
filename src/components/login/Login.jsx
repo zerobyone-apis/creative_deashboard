@@ -23,10 +23,14 @@ export const Login = () => {
 				};
 
 				dispatch(loginUser(userData));
+				toast.success("Welcome back, @" + user.username, {
+					position: toast.POSITION.BOTTOM_LEFT,
+				});
 			})
 			.catch(error => {
-				const errorMessage = error.message;
-				toast(errorMessage);
+				toast.error("Error trying to login, check your credentials.", {
+					position: toast.POSITION.BOTTOM_LEFT,
+				});
 			});
 	};
 
