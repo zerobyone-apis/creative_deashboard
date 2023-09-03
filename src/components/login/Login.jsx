@@ -6,6 +6,9 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../../redux/actions/LoginAction";
 import "./Login.css";
 import { Card } from "../base/card/Card";
+import { auth } from "../../utils/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 
 export const Login = () => {
 	const dispatch = useDispatch();
@@ -13,13 +16,18 @@ export const Login = () => {
 	const handleLogin = () => {
 		// Aquí podrías realizar la lógica de autenticación, como enviar una solicitud al servidor
 		// y recibir la respuesta de éxito junto con los datos del usuario.
+		signInWithEmailAndPassword(auth, user.username, user.password)
+			.then(userCredential => {
+				const userData = {
+					username: user.username,
+				};
 
-		const userData = {
-			username: user.username,
-			// Otros datos del usuario que recibiste después de la autenticación.
-		};
-
-		dispatch(loginUser(userData));
+				dispatch(loginUser(userData));
+			})
+			.catch(error => {
+				const errorMessage = error.message;
+				toast(errorMessage);
+			});
 	};
 
 	return (

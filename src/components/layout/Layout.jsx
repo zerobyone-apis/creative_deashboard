@@ -8,6 +8,8 @@ import Routes from "../Routes";
 import { BrowserRouter, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ThemeAction from "../../redux/actions/ThemeAction";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Layout = () => {
 	const themeReducer = useSelector(state => state.ThemeReducer);
@@ -26,21 +28,26 @@ const Layout = () => {
 	}, [dispatch]);
 
 	return (
-		<BrowserRouter>
-			<Route
-				render={props => (
-					<div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
-						{user && <Sidebar {...props} />}
-						<div className={user ? "layout__content" : "layout__content_2"}>
-							{user && <TopNav />}
-							<div className="layout__content-main">
-								<Routes />
+		<>
+			<BrowserRouter>
+				<Route
+					render={props => (
+						<div
+							className={`layout ${themeReducer.mode} ${themeReducer.color}`}
+						>
+							{user && <Sidebar {...props} />}
+							<div className={user ? "layout__content" : "layout__content_2"}>
+								{user && <TopNav />}
+								<div className="layout__content-main">
+									<Routes />
+								</div>
 							</div>
 						</div>
-					</div>
-				)}
-			/>
-		</BrowserRouter>
+					)}
+				/>
+			</BrowserRouter>
+			<ToastContainer />
+		</>
 	);
 };
 
