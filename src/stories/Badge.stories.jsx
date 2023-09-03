@@ -6,32 +6,33 @@ import "../components/badge/badge.css";
 export default {
 	title: "Atoms/Badge",
 	component: Badge,
+	tags: ["autodocs"],
 };
 
 export const Primary = {
 	args: {
-		type: "primary",
 		content: "Primary",
+		type: "primary",
 	},
 };
 
 export const Success = {
 	args: {
-		type: "success",
 		content: "Success",
+		type: "success",
 	},
 };
 
 export const Warning = {
 	args: {
-		type: "warning",
 		content: "Warning",
+		type: "warning",
 	},
 };
 
 export const Danger = {
 	args: {
-		type: "danger",
 		content: "Danger",
+		type: "danger",
 	},
 };
