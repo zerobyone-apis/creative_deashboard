@@ -2,11 +2,9 @@ import React from "react";
 import "./topnav.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Dropdown from "../dropdown/Dropdown";
 import ThemeMenu from "../theme-menu/ThemeMenu";
-import notifications from "../../assets/JsonData/notification.json";
-import user_image from "../../assets/images/tuat.png";
-import user_menu from "../../assets/JsonData/user_menus.json";
+import { NavItem } from "../navitem/NavItem";
+import { DropdownMenu } from "../dropdownmenu/DropdownMenu";
 
 const renderNotificationItem = (item, index) => (
 	<div className="notification-item" key={index}>
@@ -51,34 +49,15 @@ const Topnav = () => {
 				<input type="text" placeholder="Search here..." />
 				<i className="bx bx-search"></i>
 			</div>
-			<div className="topnav__right">
-				<div className="topnav__right-item">
-					{/* dropdown here */}
-					<Dropdown
-						customToggle={() =>
-							renderUserToggle({
-								display_name: user.username,
-								image: user_image,
-							})
-						}
-						contentData={user_menu}
-						renderItems={(item, index) => renderUserMenu(item, index)}
-					/>
+			<div className="topnav__right" style={{ gap: "3px" }}>
+				<div>
+					<NavItem icon="bx bx-user">
+						<DropdownMenu />
+					</NavItem>
 				</div>
-				<div className="topnav__right-item">
+				<div>
 					{/* dropdown here */}
-					<Dropdown
-						icon="bx bx-bell"
-						badge="12"
-						contentData={notifications}
-						renderItems={(item, index) => renderNotificationItem(item, index)}
-						renderFooter={() => (
-							<Link to="/">
-								{/*Aca redirigirlo al centro de notificaciones que comentaba.*/}
-								View All
-							</Link>
-						)}
-					/>
+					<NavItem icon="bx bx-bell" />
 				</div>
 				<div className="topnav__right-item">
 					<ThemeMenu />
